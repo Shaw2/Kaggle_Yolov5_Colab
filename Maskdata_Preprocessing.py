@@ -142,9 +142,10 @@ print(train)
 
 def create_labels(image_list, data_name):
     fileNames = [x.split(".")[0] for x in image_list]
-
+    print('fileNames : ', fileNames)
     for name in fileNames:
         data = df[df.file == name]
+        print('data : ', data, 'data-END')
         box_list = []
 
         for index in range(len(data)):
