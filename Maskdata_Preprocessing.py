@@ -143,8 +143,23 @@ print(train)
 def create_labels(image_list, data_name):
     fileNames = [x.split(".")[0] for x in image_list]
     print('fileNames : ', fileNames)
+#    df['file'] = df.replace('\', '/', )
     for name in fileNames:
-        data = df[df.file == name]
+        print(os.getcwd())
+        path = 'annotations\\'+ name
+        print(path)
+#        print(df)
+#        print(df.file)
+#        print('===='*20)
+#       이러면 왠지 안될듯 data = df[df.file == ('annotations/'+name)]
+#        print(df['file'])
+
+#       이건 왜 Nooo로 나왔으려나?
+#         if path in df['file'] :
+#             print('yes')
+#         else:
+#             print('Nooooo')
+        data = df[df.file == path]
         print('data : ', data, 'data-END')
         box_list = []
 
