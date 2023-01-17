@@ -144,8 +144,9 @@ def create_labels(image_list, data_name):
     fileNames = [x.split(".")[0] for x in image_list]
     print('fileNames : ', fileNames)
 #    df['file'] = df.replace('\', '/', )
+    print(os.getcwd())
     for name in fileNames:
-        print(os.getcwd())
+
         path = 'annotations\\'+ name
         print(path)
 #        print(df)
@@ -160,7 +161,7 @@ def create_labels(image_list, data_name):
 #         else:
 #             print('Nooooo')
         data = df[df.file == path]
-        print('data : ', data, 'data-END')
+#        print('data : ', data, 'data-END')
         box_list = []
 
         for index in range(len(data)):
@@ -176,3 +177,18 @@ def create_labels(image_list, data_name):
 create_labels(train, "train")
 create_labels(val, "val")
 create_labels(test, "test")
+
+print('===='*30)
+print(os.getcwd())
+
+
+
+# yolov5에서는 .yaml에 모든 경로를 적을 필요없이 디렉토리로 충당
+# with open('./working/yolov5/data/train.txt', 'w') as f:
+#     f.write('\n'.join('./face-mask-detection/images/'+train)+'\n')
+#
+# with open('./working/yolov5/data/test.txt', 'w') as f:
+#     f.write('\n'.join(test)+'\n')
+#
+# with open('./working/yolov5/data/val.txt', 'w') as f:
+#     f.write('\n'.join(val)+'\n')
